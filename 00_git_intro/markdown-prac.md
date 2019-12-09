@@ -48,3 +48,16 @@ $ git push origin master
   - 독립적인 작업 영역 안에서 마음대로 소스코드를 변경할 수 있다. 
   - 분리된 작업 영역에서 변경된 내용은 추후에 기존 버전과 비교해서 새로운 하나의 버전을 만들어 낼 수 있다.
 
+
+
+### 6. Git Push
+
+```bash
+$ git remote add origin https://github.com/QuartzzBlue/TIL.git
+							# https://github.com/QuartzzBlue/TIL.git 이라는
+							# repository를 origin으로 등록
+$ git push origin master	# origin에 master 자격으로 push
+```
+
+
+
