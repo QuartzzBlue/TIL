@@ -10,7 +10,7 @@ $ git config --global user.email "seulee95@-"
 ### git - github 연결
 ```
 $ git init
-
+```
 ### git add, commit, push
 ```
 $ git add .
