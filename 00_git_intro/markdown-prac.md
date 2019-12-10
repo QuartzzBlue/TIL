@@ -2,7 +2,7 @@
 
 ### 1. Git 개념
 
-git은 컴퓨터 파일의 변경사항을 추적하고 여러 명의 사용자들 간에 해당 파일들의 작업을 조율하기 위한 **분산 관리 시스템**이다.
+git은 컴퓨터 파일의 변경사항을 추적하고 여러 명의 사용자들 간에 해당 파일들의 작업을 조율하기 위한 **분산 버전 관리 시스템**이다.
 
 
 
@@ -53,11 +53,18 @@ $ git push origin master
 ### 6. Git Push
 
 ```bash
-$ git remote add origin https://github.com/QuartzzBlue/TIL.git
+$ git remote add origin [Github Repo Url]
 							# https://github.com/QuartzzBlue/TIL.git 이라는
 							# repository를 origin으로 등록
 $ git push origin master	# origin에 master 자격으로 push
 ```
 
 
+
+### ** 기타
+
+```bash
+$ git status	# git status 확인! commit 상황
+$ git log		# 이제까지의 git log 확인! 랜덤 hash로 commit 관리!
+```
 
