@@ -15,6 +15,8 @@ git은 컴퓨터 파일의 변경사항을 추적하고 여러 명의 사용자�
 ```bash
 $ git config --global user.name "seulee95"	
 $ git config --global user.email "seulee95@naver.com"
+
+$ git config --global --list # 글로벌로 설정한 리스트 확인 가능	
 ```
 
 
