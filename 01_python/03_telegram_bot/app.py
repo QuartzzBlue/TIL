@@ -37,8 +37,8 @@ def telegram():
         # url = f'{base}/bot{token}/sendMessage?chat_id={chat_id}&text={text}'
         
 
-        # text의 0~3글자가 '/번역 ' 일 때, 
-        if text[0:4] == '/번역 ' : 
+        # text의 0~3글자가 '/한영 ' 일 때, 
+        if text[0:4] == '/한영 ' : 
             headers = {
                 'X-Naver-Client-Id': naver_client_id,
                 'X-Naver-Client-Secret':naver_client_secret
@@ -46,6 +46,28 @@ def telegram():
             data = {'source':'ko', 'target':'en', 'text':text[4:]}  # 데이터 안의 text에는 4글자부터의 문장을 넣겠다
             papago_res = requests.post('https://openapi.naver.com/v1/papago/n2mt', headers=headers, data=data)
             text = papago_res.json().get('message').get('result').get('translatedText') # text 에 번역된 결과 넣어줌
+
+        if text[0:4] == '/영한 ' : 
+            headers = {
+                'X-Naver-Client-Id': naver_client_id,
+                'X-Naver-Client-Secret':naver_client_secret
+                }
+            data = {'source':'en', 'target':'ko', 'text':text[4:]}  # 데이터 안의 text에는 4글자부터의 문장을 넣겠다
+            papago_res = requests.post('https://openapi.naver.com/v1/papago/n2mt', headers=headers, data=data)
+            text = papago_res.json().get('message').get('result').get('translatedText') # text 에 번역된 결과 넣어줌
+
+
+        if text[0:4] == '/로또 ':
+            num = text[4:]
+            res = request.get(f'https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo={num}')
+            lotto = res.json()
+
+            winner = []
+            for i in range(1,7):
+                winner.append(lotto[f'drwtNo{i}'])
+            bonus_num = lotto['bnusNo']
+            text = f'{num}회차 로또 당첨번호는 {winner}입니다. 보너스 당첨번호는 {bonus_num}입니다.'
+
 
         requests.get(f'{base}/bot{token}/sendMessage?chat_id={chat_id}&text={text}')
 
