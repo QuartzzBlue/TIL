@@ -17,7 +17,3 @@ $ git add .
 $ git commit -m "commit message"
 $ git push origin master
 ```
-
-## TIL 서약서
-**1 Day 1 Commit** 
-~~충분히 놀았으니 정신 잡고 열심히 살자~~
